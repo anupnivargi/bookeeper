@@ -1,0 +1,28 @@
+<form action="/" method="POST" class="form-inline">
+  <fieldset class="control-group <%= @entry.errors.full_messages.empty? ? '' : 'error' %>">
+    <div class="input-prepend">
+      <span class="add-on"><i class="icon-tasks"></i></span><input type="text" name="entry[serial]" placeholder="Serial"/>
+    </div>
+
+    <div class="input-prepend">
+      <span class="add-on"><i class="icon-tasks"></i></span><input type="text" name="entry[name]" placeholder="Name" />
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-small">Submit</button>
+  </fieldset>
+</form>
+
+<table cellpadding="20" cellspacing="10" class="table table-striped">
+  <tr>
+    <th>Serial</th>
+    <th>Name</th>
+  </tr>
+
+  <% @entries.each do |entry| %>
+    <tr>
+      <td><%= entry.serial %></td>
+      <td><%= entry.name %></td>
+      <td><a href="/delete/<%= entry.id %>"><i class="icon-trash"></i></a></td>
+    </tr>
+  <% end %>
+</table>
