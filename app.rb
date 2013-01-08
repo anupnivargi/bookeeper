@@ -12,7 +12,7 @@ configure :development do
 end
 
 configure :production do
-  DataMapper.setup(:default, "mysql://#{ENV['OPENSHIFT_MYSQL_DB_USERNAME']}:#{ENV['OPENSHIFT_MYSQL_DB_PASSWORD']}@$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/knol")
+  DataMapper.setup(:default, "mysql://#{ENV['OPENSHIFT_MYSQL_DB_USERNAME']}:#{ENV['OPENSHIFT_MYSQL_DB_PASSWORD']}@#{ENV['OPENSHIFT_MYSQL_DB_HOST']}:#{ENV['OPENSHIFT_MYSQL_DB_PORT']}/knol")
 end
 
 class Entry
