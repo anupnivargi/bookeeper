@@ -1,14 +1,15 @@
-<form action="/" method="POST" class="form-inline">
+<form action="/" method="POST" class="form-inline" id="entry-form">
   <fieldset class="control-group <%= @entry.errors.full_messages.empty? ? '' : 'error' %>">
     <div class="input-prepend">
-      <span class="add-on"><i class="icon-tasks"></i></span><input type="text" name="entry[serial]" placeholder="Serial"/>
+      <span class="add-on"><i class="icon-tasks"></i></span><input type="text" name="entry[serial]" placeholder="ISBN" id="entry-isbn"/>
     </div>
 
     <div class="input-prepend">
-      <span class="add-on"><i class="icon-tasks"></i></span><input type="text" name="entry[name]" placeholder="Name" />
+      <span class="add-on"><i class="icon-tasks"></i></span><input type="text" name="entry[name]" placeholder="Name" id="entry-name"/>
     </div>
-
+    <!--
     <button type="submit" class="btn btn-primary btn-small">Submit</button>
+    -->
   </fieldset>
 </form>
 
