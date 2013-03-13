@@ -61,14 +61,22 @@ class App < Sinatra::Base
   end
 
   get "/delete/:id" do
-    @entry = Entry.first(params[:id])
+    @entry = Entry.get(params[:id])
     if @entry.destroy
       flash[:notice] = "Deleted"
     else
       flash[:alert] = "Failed to Delete"
     end
     redirect "/"
-end
+  end
+
+  post "/search" do
+    @entry = Entry.new
+    if params[:q]
+      @entries = Entry.all(:name.like => "%#{params[:q]}%")
+    end
+    erb :index
+  end
 
 
 end

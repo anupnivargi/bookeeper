@@ -10,7 +10,7 @@ $(document).ready(function(){
   });
 
   $("#entry-isbn").keyup(function(){
-    if($(this).val().length == 13){
+    if(($(this).val().length == 10) || ($(this).val().length == 13)){
       var url = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + $(this).val();
       $.ajax({ 
         url : url,
@@ -20,6 +20,7 @@ $(document).ready(function(){
           if(totalItems > 0){
             var items = data.items;
             var item = items[0];
+            console.log(item);
             var volumeInfo = item.volumeInfo;
             var title = volumeInfo.title;
             var subtitle = volumeInfo.subtitle;
